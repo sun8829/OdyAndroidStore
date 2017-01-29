@@ -3,10 +3,15 @@ package com.huaye.odyandroidstore.utils;
 import android.content.Context;
 
 /**
- * Created by sunhuahui on 2017/1/29.
+ * <pre>
+ *     author: Blankj
+ *     blog  : http://blankj.com
+ *     time  : 16/12/08
+ *     desc  : Utils初始化相关
+ * </pre>
  */
-
 public class Utils {
+
     private static Context context;
 
     private Utils() {
@@ -31,5 +36,4 @@ public class Utils {
         if (context != null) return context;
         throw new NullPointerException("u should init first");
     }
-
 }

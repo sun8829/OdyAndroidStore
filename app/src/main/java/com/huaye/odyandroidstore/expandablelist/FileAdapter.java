@@ -42,7 +42,8 @@ public class FileAdapter extends BaseMultiItemQuickAdapter<FilesMultiEntity, Bas
     protected void convert(BaseViewHolder helper, FilesMultiEntity item) {
         switch (helper.getItemViewType()) {
             case TYPE_FILE:
-                helper.setImageResource(R.id.type_icon, R.mipmap.file);
+                helper.setImageResource(R.id.type_icon, R.mipmap.file)
+                        .setText(R.id.date, item.date);
                 break;
             case TYPE_DIRECTORY:
                 if (item.isExpand) {

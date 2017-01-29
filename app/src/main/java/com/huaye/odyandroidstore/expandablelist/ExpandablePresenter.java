@@ -2,6 +2,7 @@ package com.huaye.odyandroidstore.expandablelist;
 
 import com.huaye.odyandroidstore.subscribe.ApiSubscriber;
 import com.huaye.odyandroidstore.subscribe.SubscriberListener;
+import com.huaye.odyandroidstore.utils.TimeUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -49,12 +50,12 @@ public class ExpandablePresenter {
         for (File file : files) {
             FilesMultiEntity entity = new FilesMultiEntity();
             if (file.isFile()) {
+                entity.date = TimeUtils.millis2String(file.lastModified());
                 entity.itemType = FileAdapter.TYPE_FILE;
             } else {
                 entity.itemType = FileAdapter.TYPE_DIRECTORY;
             }
             entity.name = file.getName();
-
             entity.directory = file.getAbsolutePath();
 
             if (position < 0) {
