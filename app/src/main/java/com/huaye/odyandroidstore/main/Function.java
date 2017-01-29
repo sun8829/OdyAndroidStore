@@ -5,11 +5,13 @@ package com.huaye.odyandroidstore.main;
  */
 
 public class Function {
+    public int imgId;
     public String name;
     public String des;
     public Class<?> clazz;
 
-    public Function(String name, String des, Class<?> clazz) {
+    public Function(int imgId, String name, String des, Class<?> clazz) {
+        this.imgId = imgId;
         this.name = name;
         this.des = des;
         this.clazz = clazz;

@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.huaye.odyandroidstore.R;
@@ -60,6 +61,7 @@ public class MainActivity extends BaseActivity {
             TextView des = (TextView) view.findViewById(R.id.des);
             name.setText(function.name);
             des.setText(function.des);
+            Glide.with(this).load(function.imgId).centerCrop().into(img);
             view.setTag(function);
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -98,10 +100,10 @@ public class MainActivity extends BaseActivity {
 
     private List<Function> getData() {
         List<Function> items = new ArrayList<>();
-        items.add(new Function("文件管理器", "分组列表", ExpandableActivity.class));
-        items.add(new Function("文件管理器", "分组列表", ExpandableActivity.class));
-        items.add(new Function("文件管理器", "分组列表", ExpandableActivity.class));
-        items.add(new Function("文件管理器", "分组列表", ExpandableActivity.class));
+        items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
+        items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
+        items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
+        items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
         return items;
     }
 }
