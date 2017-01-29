@@ -6,11 +6,12 @@ package com.huaye.odyandroidstore.main;
 
 public class Function {
     public String name;
-
+    public String des;
     public Class<?> clazz;
 
-    public Function(String name, Class<?> clazz) {
+    public Function(String name, String des, Class<?> clazz) {
         this.name = name;
+        this.des = des;
         this.clazz = clazz;
     }
 }
