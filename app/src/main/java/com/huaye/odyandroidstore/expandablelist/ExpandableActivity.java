@@ -67,8 +67,4 @@ public class ExpandableActivity extends BaseActivity implements ExpandView {
         }
     }
 
-    @Override
-    public void updateData() {
-        adapter.notifyDataSetChanged();
-    }
 }

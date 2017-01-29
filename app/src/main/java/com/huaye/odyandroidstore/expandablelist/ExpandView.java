@@ -9,5 +9,4 @@ import java.util.List;
 public interface ExpandView {
     void fillData(int position, List<FilesMultiEntity> list);
 
-    void updateData();
 }
