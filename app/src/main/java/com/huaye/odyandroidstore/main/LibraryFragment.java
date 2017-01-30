@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.huaye.odyandroidstore.R;
-import com.huaye.odyandroidstore.base.BaseActivity;
+import com.huaye.odyandroidstore.base.BaseFragment;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
 import com.huaye.odyandroidstore.utils.ScreenUtils;
@@ -22,7 +22,7 @@ import com.huaye.odyandroidstore.utils.ScreenUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity {
+public class LibraryFragment extends BaseFragment {
 
     private RecyclerView functionRv;
     private FunctionAdapter adapter;
@@ -39,38 +39,38 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int bindLayout() {
-        return R.layout.activity_main;
+        return R.layout.fragment_main;
     }
 
     @Override
-    protected void initView() {
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+    protected void initView(View view) {
+        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) viewPager.getLayoutParams();
         layoutParams.width = ScreenUtils.getScreenWidth() - ConvertUtils.dp2px(80);
         layoutParams.setMargins(ConvertUtils.dp2px(16), 0, ConvertUtils.dp2px(16), 0);
         viewPager.setLayoutParams(layoutParams);
 
-        functionRv = (RecyclerView) findViewById(R.id.functionRv);
-        functionRv.setLayoutManager(new LinearLayoutManager(this));
+        functionRv = (RecyclerView) view.findViewById(R.id.functionRv);
+        functionRv.setLayoutManager(new LinearLayoutManager(mContext));
         functionRv.setAdapter(adapter);
 
         for (Function function : getData()) {
-            View view = LayoutInflater.from(this).inflate(R.layout.item_vp_fun, null);
-            ImageView img = (ImageView) view.findViewById(R.id.img);
-            TextView name = (TextView) view.findViewById(R.id.name);
-            TextView des = (TextView) view.findViewById(R.id.des);
+            View v = LayoutInflater.from(mContext).inflate(R.layout.item_vp_fun, null);
+            ImageView img = (ImageView) v.findViewById(R.id.img);
+            TextView name = (TextView) v.findViewById(R.id.name);
+            TextView des = (TextView) v.findViewById(R.id.des);
             name.setText(function.name);
             des.setText(function.des);
             Glide.with(this).load(function.imgId).centerCrop().into(img);
-            view.setTag(function);
-            view.setOnClickListener(new View.OnClickListener() {
+            v.setTag(function);
+            v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Function f = (Function) view.getTag();
-                    startActivity(new Intent(MainActivity.this, f.clazz));
+                    startActivity(new Intent(mContext, f.clazz));
                 }
             });
-            views.add(view);
+            views.add(v);
         }
 
         pagerAdapter = new FunctionPagerAdapter(views);
@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Function function = (Function) adapter.getItem(position);
-                startActivity(new Intent(MainActivity.this, function.clazz));
+                startActivity(new Intent(mContext, function.clazz));
             }
         });
 

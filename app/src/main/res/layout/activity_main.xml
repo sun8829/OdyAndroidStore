@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/activity_main2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF"
-    android:clipChildren="false"
-    tools:context="com.huaye.odyandroidstore.main.MainActivity">
+    tools:context="com.huaye.odyandroidstore.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/functionRv"
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#222"
+        app:menu="@menu/menu_nav" />
+
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" />
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_gravity="top|center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:background="@color/transparent"
-        android:clipChildren="false" />
-</FrameLayout>
+        android:layout_above="@id/nav" />
+</RelativeLayout>
