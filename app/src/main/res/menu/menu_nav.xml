@@ -6,10 +6,6 @@
         android:icon="@mipmap/library"
         android:title="代码库" />
     <item
-        android:id="@+id/menu_project"
-        android:icon="@mipmap/project"
-        android:title="项目实战" />
-    <item
         android:id="@+id/menu_welfare"
         android:icon="@mipmap/welfare"
         android:title="福利" />
