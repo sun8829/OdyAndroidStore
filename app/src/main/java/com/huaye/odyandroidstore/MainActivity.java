@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import com.huaye.odyandroidstore.base.BaseActivity;
 import com.huaye.odyandroidstore.main.LibraryFragment;
 import com.huaye.odyandroidstore.my.MyFragment;
-import com.huaye.odyandroidstore.utils.ToastUtils;
 import com.huaye.odyandroidstore.welfare.WelfareFragment;
 
 public class MainActivity extends BaseActivity {
@@ -47,11 +46,9 @@ public class MainActivity extends BaseActivity {
                         break;
                     case R.id.menu_welfare:
                         fm.beginTransaction().replace(R.id.container, new WelfareFragment()).commitAllowingStateLoss();
-                        ToastUtils.showShortToast("建设中...");
                         break;
                     case R.id.menu_my:
                         fm.beginTransaction().replace(R.id.container, new MyFragment()).commitAllowingStateLoss();
-                        ToastUtils.showShortToast("建设中...");
                         break;
                 }
                 return true;

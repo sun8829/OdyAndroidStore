@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="福利中心"
+        android:text="福利中心(建设中...)"
         android:textSize="20sp" />
 
 </FrameLayout>

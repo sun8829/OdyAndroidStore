@@ -18,6 +18,8 @@ import com.huaye.odyandroidstore.base.BaseFragment;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
 import com.huaye.odyandroidstore.utils.ScreenUtils;
+import com.huaye.odyandroidstore.utils.StringUtils;
+import com.huaye.odyandroidstore.web.WebActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +69,11 @@ public class LibraryFragment extends BaseFragment {
                 @Override
                 public void onClick(View view) {
                     Function f = (Function) view.getTag();
-                    startActivity(new Intent(mContext, f.clazz));
+                    Intent intent = new Intent(mContext, f.clazz);
+                    if (!StringUtils.isEmpty(f.extra)) {
+                        intent.putExtra("extra", f.extra);
+                    }
+                    startActivity(intent);
                 }
             });
             views.add(v);
@@ -92,7 +98,11 @@ public class LibraryFragment extends BaseFragment {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Function function = (Function) adapter.getItem(position);
-                startActivity(new Intent(mContext, function.clazz));
+                Intent intent = new Intent(mContext, function.clazz);
+                if (function.extra != null) {
+                    intent.putExtra("extra", function.extra);
+                }
+                startActivity(intent);
             }
         });
 
@@ -101,8 +111,11 @@ public class LibraryFragment extends BaseFragment {
     private List<Function> getData() {
         List<Function> items = new ArrayList<>();
         items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
+
+        items.add(new Function(R.mipmap.exp, "布局", "ConstraintLayout", "https://gold.xitu.io/entry/589461bd8d6d81006c4d7fe4", WebActivity.class));
+
         items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
-        items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
+
         items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
         return items;
     }
