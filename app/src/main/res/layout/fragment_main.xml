@@ -14,11 +14,19 @@
         android:layout_height="match_parent"
         android:visibility="gone" />
 
+    <WebView
+        android:id="@+id/wv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="100dp" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="100dp"
         android:layout_gravity="bottom|center_horizontal"
         android:background="@color/transparent"
         android:clipChildren="false" />
+
+
 </FrameLayout>

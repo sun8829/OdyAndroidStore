@@ -23,6 +23,6 @@ public class FunctionAdapter extends BaseQuickAdapter<Function, BaseViewHolder> 
 
     @Override
     protected void convert(BaseViewHolder helper, Function item) {
-        helper.setText(R.id.item, item.name);
+        helper.setText(R.id.item, item.getName());
     }
 }

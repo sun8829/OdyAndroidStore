@@ -19,7 +19,8 @@
             android:id="@+id/img"
             android:layout_width="90dp"
             android:layout_height="150dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +39,7 @@
                 android:id="@+id/des"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
