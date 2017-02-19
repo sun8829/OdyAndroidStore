@@ -1,19 +1,18 @@
 package com.huaye.odyandroidstore.main;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseFragment;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
@@ -26,17 +25,14 @@ import java.util.List;
 
 public class LibraryFragment extends BaseFragment {
 
-    private RecyclerView functionRv;
-    private FunctionAdapter adapter;
     private FunctionPagerAdapter pagerAdapter;
-    private WebView wv;
+    private ImageView docImg;
     private ViewPager viewPager;
     private List<View> views;
 
     @Override
     protected void init() {
         super.init();
-        adapter = new FunctionAdapter();
         views = new ArrayList<>();
     }
 
@@ -48,27 +44,31 @@ public class LibraryFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
         viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-        wv = (WebView) view.findViewById(R.id.wv);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) viewPager.getLayoutParams();
+        docImg = (ImageView) view.findViewById(R.id.docImg);
+
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) viewPager.getLayoutParams();
         layoutParams.width = ScreenUtils.getScreenWidth() - ConvertUtils.dp2px(80);
-        layoutParams.setMargins(ConvertUtils.dp2px(16), 0, ConvertUtils.dp2px(16), 0);
+        //layoutParams.setMargins(ConvertUtils.dp2px(16), ConvertUtils.dp2px(48 + 16), ConvertUtils.dp2px(16), ConvertUtils.dp2px(16));
         viewPager.setLayoutParams(layoutParams);
-
-        functionRv = (RecyclerView) view.findViewById(R.id.functionRv);
-        functionRv.setLayoutManager(new LinearLayoutManager(mContext));
-        functionRv.setAdapter(adapter);
-
+        int index = 0;
         for (Function function : getData()) {
+
             View v = LayoutInflater.from(mContext).inflate(R.layout.item_vp_fun, null);
+            CardView cv = (CardView) v.findViewById(R.id.cardView);
+            if (index++ % 2 != 0) {
+                cv.setCardBackgroundColor(Color.parseColor("#DDDDDD"));
+            } else {
+                cv.setCardBackgroundColor(Color.WHITE);
+            }
             ImageView img = (ImageView) v.findViewById(R.id.img);
             TextView name = (TextView) v.findViewById(R.id.name);
             TextView des = (TextView) v.findViewById(R.id.des);
             name.setText(function.getName());
             des.setText(function.getDes());
             if (function.getImgId() > 0) {
-                Glide.with(this).load(function.getImgId()).centerCrop().into(img);
-            } else if (!StringUtils.isEmpty(function.getImgUrl())) {
-                Glide.with(this).load(function.getImgUrl()).into(img);
+                Glide.with(mContext).load(function.getImgId()).into(img);
+            } else {
+                Glide.with(mContext).load(function.getImgUrl()).into(img);
             }
 
             v.setTag(function);
@@ -93,27 +93,8 @@ public class LibraryFragment extends BaseFragment {
     }
 
     @Override
-    protected void initData() {
-        super.initData();
-        adapter.setNewData(getData());
-
-    }
-
-    @Override
     protected void initListener() {
         super.initListener();
-        functionRv.addOnItemTouchListener(new OnItemClickListener() {
-            @Override
-            public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Function function = (Function) adapter.getItem(position);
-                Intent intent = new Intent(mContext, function.getClazz());
-                if (function.getExtra() != null) {
-                    intent.putExtra("extra", function.getExtra());
-                }
-                startActivity(intent);
-            }
-        });
-
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -122,13 +103,6 @@ public class LibraryFragment extends BaseFragment {
 
             @Override
             public void onPageSelected(int position) {
-                List<Function> fs = getData();
-                if (fs != null && fs.size() > 0 && position < fs.size()) {
-                    Function f = fs.get(position);
-                    if (f != null) {
-                        wv.loadUrl(f.getDocUrl());
-                    }
-                }
             }
 
             @Override
@@ -137,6 +111,18 @@ public class LibraryFragment extends BaseFragment {
             }
         });
 
+        docImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_title, menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     private List<Function> getData() {
@@ -152,7 +138,7 @@ public class LibraryFragment extends BaseFragment {
         //items.add(new Function("https://user-gold-cdn.xitu.io/2017/2/3/96dd3821afded53cc0d74e273bd611dd", "布局", "ConstraintLayout", "https://gold.xitu.io/entry/589461bd8d6d81006c4d7fe4", WebActivity.class));
         items.add(new Function()
                 .setDocUrl("https://gold.xitu.io/entry/589461bd8d6d81006c4d7fe4")
-                .setImgUrl("https://user-gold-cdn.xitu.io/2017/2/3/96dd3821afded53cc0d74e273bd611dd")
+                .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/19/8a52a75640d5f75080b6f96ba424428d.gif")
                 .setName("布局")
                 .setDes("ConstraintLayout解析"));
 
