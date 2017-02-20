@@ -1,8 +1,8 @@
 package com.huaye.odyandroidstore.expandablelist;
 
-import android.os.Environment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -18,6 +18,11 @@ public class ExpandableActivity extends BaseActivity implements ExpandView {
     private ExpandablePresenter presenter;
 
     @Override
+    protected void preOnCreate() {
+        super.preOnCreate();
+    }
+
+    @Override
     protected void init() {
         super.init();
         adapter = new FileAdapter();
@@ -31,6 +36,8 @@ public class ExpandableActivity extends BaseActivity implements ExpandView {
 
     @Override
     protected void initView() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         fileRv = (RecyclerView) findViewById(R.id.fileRv);
         fileRv.setLayoutManager(new LinearLayoutManager(this));
         fileRv.setAdapter(adapter);
@@ -39,7 +46,7 @@ public class ExpandableActivity extends BaseActivity implements ExpandView {
     @Override
     protected void initData() {
         super.initData();
-        presenter.getFiles(-1, Environment.getExternalStorageDirectory().getAbsolutePath());
+        presenter.getFiles(-1, presenter.getBasePath());
 
     }
 

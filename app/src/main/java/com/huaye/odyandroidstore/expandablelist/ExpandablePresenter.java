@@ -1,5 +1,7 @@
 package com.huaye.odyandroidstore.expandablelist;
 
+import android.os.Environment;
+
 import com.huaye.odyandroidstore.subscribe.ApiSubscriber;
 import com.huaye.odyandroidstore.subscribe.SubscriberListener;
 import com.huaye.odyandroidstore.utils.TimeUtils;
@@ -68,5 +70,34 @@ public class ExpandablePresenter {
 
         }
     }
+
+    /**
+     * 获取sd卡的绝对路径
+     *
+     * @return String 如果sd卡存在，返回sd卡的绝对路径，否则返回null
+     **/
+    public String getSDPath() {
+        String sdcard = Environment.getExternalStorageState();
+        if (sdcard.equals(Environment.MEDIA_MOUNTED)) {
+            return Environment.getExternalStorageDirectory().getAbsolutePath();
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * 获取一个基本的路径，一般应用创建存放应用数据可以用到
+     *
+     * @return String 如果SD卡存在，返回SD卡的绝对路径，如果SD卡不存在，返回Android数据目录的绝对路径
+     **/
+    public String getBasePath() {
+        String basePath = getSDPath();
+        if (basePath == null) {
+            return Environment.getDataDirectory().getAbsolutePath();
+        } else {
+            return basePath;
+        }
+    }
+
 
 }

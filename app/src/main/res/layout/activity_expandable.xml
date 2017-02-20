@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_expandable"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.huaye.odyandroidstore.expandablelist.ExpandableActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:navigationIcon="@mipmap/back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="多级列表" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fileRv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</FrameLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        app:behavior_overlapTop="?attr/actionBarSize" />
+</android.support.design.widget.CoordinatorLayout>
