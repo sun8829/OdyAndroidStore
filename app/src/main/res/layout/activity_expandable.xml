@@ -15,7 +15,8 @@
         app:layout_scrollFlags="scroll|enterAlways"
         app:navigationIcon="@mipmap/back"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="多级列表" />
+        app:title="多级列表"
+        app:titleTextColor="@color/white" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/fileRv"

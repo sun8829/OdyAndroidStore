@@ -1,7 +1,11 @@
 package com.huaye.odyandroidstore.main;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
@@ -24,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryFragment extends BaseFragment {
-
+    private static final String EXTRA_CUSTOM_TABS_SESSION = "android.support.customtabs.extra.SESSION";
     private FunctionPagerAdapter pagerAdapter;
     private ImageView docImg;
     private ViewPager viewPager;
@@ -112,9 +116,15 @@ public class LibraryFragment extends BaseFragment {
         });
 
         docImg.setOnClickListener(new View.OnClickListener() {
+            @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
             @Override
             public void onClick(View view) {
-
+                String url = "https://github.com/samuelhuahui/OdyAndroidStore/wiki/ExpandableList";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                Bundle extras = new Bundle();
+                extras.putBinder(EXTRA_CUSTOM_TABS_SESSION, null);
+                intent.putExtras(extras);
+                startActivity(intent);
             }
         });
     }
