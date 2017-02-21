@@ -140,7 +140,7 @@ public class LibraryFragment extends BaseFragment {
         //items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
-                .setImgId(R.mipmap.exp)
+                .setImgUrl("http://upload-images.jianshu.io/upload_images/4751442-02adb2faf95c9bd7.png?imageMogr2/auto-orient/strip%7CimageView2/2")
                 .setName("文件管理器")
                 .setDes("分组列表")
                 .setClazz(ExpandableActivity.class));
@@ -154,14 +154,14 @@ public class LibraryFragment extends BaseFragment {
 
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
-                .setImgId(R.mipmap.exp)
+                .setImgUrl("http://upload-images.jianshu.io/upload_images/4751442-02adb2faf95c9bd7.png?imageMogr2/auto-orient/strip%7CimageView2/2")
                 .setName("文件管理器")
                 .setDes("分组列表")
                 .setClazz(ExpandableActivity.class));
 
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
-                .setImgId(R.mipmap.exp)
+                .setImgUrl("http://upload-images.jianshu.io/upload_images/4751442-02adb2faf95c9bd7.png?imageMogr2/auto-orient/strip%7CimageView2/2")
                 .setName("文件管理器")
                 .setDes("分组列表")
                 .setClazz(ExpandableActivity.class));
