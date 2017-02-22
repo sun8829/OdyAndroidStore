@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseFragment;
+import com.huaye.odyandroidstore.constraint.ConstraintActivity;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
 import com.huaye.odyandroidstore.utils.ScreenUtils;
@@ -150,6 +151,7 @@ public class LibraryFragment extends BaseFragment {
                 .setDocUrl("https://gold.xitu.io/entry/589461bd8d6d81006c4d7fe4")
                 .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/19/8a52a75640d5f75080b6f96ba424428d.gif")
                 .setName("布局")
+                .setClazz(ConstraintActivity.class)
                 .setDes("ConstraintLayout解析"));
 
         items.add(new Function()

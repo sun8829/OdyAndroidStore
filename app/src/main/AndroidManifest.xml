@@ -20,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".web.WebActivity"></activity>
+        <activity android:name=".web.WebActivity" />
+        <activity android:name=".constraint.ConstraintActivity"></activity>
     </application>
 
 </manifest>
