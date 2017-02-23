@@ -37,9 +37,9 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="?attr/actionBarSize"
         android:background="@color/transparent"
         android:clipChildren="false" />
-
 
 </android.support.design.widget.CoordinatorLayout>

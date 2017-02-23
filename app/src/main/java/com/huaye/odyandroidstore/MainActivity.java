@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         navigationView = (BottomNavigationView) findViewById(R.id.nav);
+
         libraryFragment = new LibraryFragment();
         fm.beginTransaction().replace(R.id.container, libraryFragment).commitAllowingStateLoss();
     }

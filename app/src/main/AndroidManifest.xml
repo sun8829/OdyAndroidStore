@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".base.App"
@@ -21,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".web.WebActivity" />
-        <activity android:name=".constraint.ConstraintActivity"></activity>
+        <activity android:name=".constraint.ConstraintActivity" />
+        <activity android:name=".coordinator.CoordinatorActivity"></activity>
     </application>
 
 </manifest>

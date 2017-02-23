@@ -14,6 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="#333"
+        app:itemBackground="@android:color/black"
+        app:itemIconTint="@android:color/white"
+        app:itemTextColor="@android:color/white"
         app:menu="@menu/menu_nav" />
 
     <FrameLayout
