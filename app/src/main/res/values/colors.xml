@@ -3,7 +3,10 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff4081</color>
-    <color name="transparent">#FFFFFFFF</color>
 
+    <color name="tab_item_bg">#333333</color>
+    <color name="transparent">#FFFFFFFF</color>
     <color name="white">#FFFFFF</color>
+    <color name="tab_checked">@color/colorPrimary</color>
+    <color name="tab_unchecked">#757575</color>
 </resources>

@@ -23,7 +23,9 @@
         </activity>
         <activity android:name=".web.WebActivity" />
         <activity android:name=".constraint.ConstraintActivity" />
-        <activity android:name=".coordinator.CoordinatorActivity"></activity>
+        <activity
+            android:name=".coordinator.CoordinatorActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
