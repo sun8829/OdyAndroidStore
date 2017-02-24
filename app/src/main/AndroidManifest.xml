@@ -26,6 +26,10 @@
         <activity
             android:name=".coordinator.CoordinatorActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".coordinator.CoordinatorNewActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".drawable.ShapeDrawableActivity"></activity>
     </application>
 
 </manifest>

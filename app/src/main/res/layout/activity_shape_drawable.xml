@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shape_drawable"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context="com.huaye.odyandroidstore.drawable.ShapeDrawableActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="基本形状：" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#333">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="@dimen/shape_height"
+                android:layout_height="@dimen/shape_height"
+                android:background="@drawable/shape_circle"
+                android:gravity="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="@dimen/shape_width"
+                android:layout_height="@dimen/shape_height"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/shape_corner"
+                android:gravity="center"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/shape_cylinder"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="@dimen/shape_height"
+                android:layout_height="@dimen/shape_height"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/shape_ring" />
+
+            <View
+                android:layout_width="@dimen/shape_height"
+                android:layout_height="@dimen/shape_height"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/shape_rec_stroke" />
+
+            <Space
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="渐变：" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#333">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/shape_height"
+                android:layout_height="@dimen/shape_height"
+                android:background="@drawable/shape_gradient0" />
+
+            <View
+                android:layout_width="@dimen/shape_height"
+                android:layout_height="@dimen/shape_height"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/shape_gradient1" />
+
+            <View
+                android:layout_width="@dimen/shape_height"
+                android:layout_height="@dimen/shape_height"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/shape_gradient2" />
+
+            <View
+                android:layout_width="@dimen/shape_height"
+                android:layout_height="@dimen/shape_height"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/shape_gradient3" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="其他：" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#333">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/shape_height"
+                android:background="@drawable/shape_glow"
+                android:gravity="center"
+                android:paddingLeft="18dp"
+                android:paddingRight="18dp"
+                android:text="发光边框"
+                android:textColor="#FFF"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

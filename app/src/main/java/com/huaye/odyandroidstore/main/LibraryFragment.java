@@ -20,7 +20,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseFragment;
 import com.huaye.odyandroidstore.constraint.ConstraintActivity;
-import com.huaye.odyandroidstore.coordinator.CoordinatorActivity;
+import com.huaye.odyandroidstore.coordinator.CoordinatorNewActivity;
+import com.huaye.odyandroidstore.drawable.ShapeDrawableActivity;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
 import com.huaye.odyandroidstore.utils.ScreenUtils;
@@ -167,7 +168,13 @@ public class LibraryFragment extends BaseFragment {
                 .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/23/e347481440db465b8077eb74e8505f38.gif")
                 .setName("CoordinatorLayout进阶")
                 .setDes("CoordinatorLayout已经加入最新的HelloWorld项目中, 也是Material风格的重要组件, 协调(Coordinate)其他组件, 实现联动.")
-                .setClazz(CoordinatorActivity.class));
+                .setClazz(CoordinatorNewActivity.class));
+
+        items.add(new Function()
+                .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
+                .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/23/e347481440db465b8077eb74e8505f38.gif")
+                .setName("ShapeDrawable大全")
+                .setClazz(ShapeDrawableActivity.class));
 
         return items;
     }
