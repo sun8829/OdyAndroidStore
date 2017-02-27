@@ -8,6 +8,6 @@
     <dimen name="spacing_normal">16dp</dimen>
     <dimen name="image_width">80dp</dimen>
     <dimen name="title_margin">80dp</dimen>
-    <dimen name="shape_width">80dp</dimen>
-    <dimen name="shape_height">60dp</dimen>
+    <dimen name="shape_width">120dp</dimen>
+    <dimen name="shape_height">80dp</dimen>
 </resources>

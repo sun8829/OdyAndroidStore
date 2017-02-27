@@ -20,7 +20,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseFragment;
 import com.huaye.odyandroidstore.constraint.ConstraintActivity;
-import com.huaye.odyandroidstore.coordinator.CoordinatorNewActivity;
+import com.huaye.odyandroidstore.coordinator.CoordinatorActivity;
 import com.huaye.odyandroidstore.drawable.ShapeDrawableActivity;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
@@ -152,7 +152,6 @@ public class LibraryFragment extends BaseFragment {
                 .setDocUrl("http://www.jianshu.com/p/027395fd3c67")
                 .setImgUrl("http://upload-images.jianshu.io/upload_images/4751442-02adb2faf95c9bd7.png?imageMogr2/auto-orient/strip%7CimageView2/2")
                 .setName("比ExpandableListView更强大的分组列表实现")
-                .setDes("分组列表")
                 .setClazz(ExpandableActivity.class));
 
         //items.add(new Function("https://user-gold-cdn.xitu.io/2017/2/3/96dd3821afded53cc0d74e273bd611dd", "布局", "ConstraintLayout", "https://gold.xitu.io/entry/589461bd8d6d81006c4d7fe4", WebActivity.class));
@@ -160,20 +159,18 @@ public class LibraryFragment extends BaseFragment {
                 .setDocUrl("http://www.jianshu.com/p/b3cd72524b11")
                 .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/19/8a52a75640d5f75080b6f96ba424428d.gif")
                 .setName("ConstraintLayout实战")
-                .setClazz(ConstraintActivity.class)
-                .setDes("ConstraintLayout开发实战"));
+                .setClazz(ConstraintActivity.class));
 
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
                 .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/23/e347481440db465b8077eb74e8505f38.gif")
                 .setName("CoordinatorLayout进阶")
-                .setDes("CoordinatorLayout已经加入最新的HelloWorld项目中, 也是Material风格的重要组件, 协调(Coordinate)其他组件, 实现联动.")
-                .setClazz(CoordinatorNewActivity.class));
+                .setClazz(CoordinatorActivity.class));
 
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
-                .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/23/e347481440db465b8077eb74e8505f38.gif")
-                .setName("ShapeDrawable大全")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/24/752b41ef403f1df280eca1229628fb88.png")
+                .setName("shape使用总结")
                 .setClazz(ShapeDrawableActivity.class));
 
         return items;
