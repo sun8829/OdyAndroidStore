@@ -24,12 +24,13 @@
         <activity android:name=".web.WebActivity" />
         <activity android:name=".constraint.ConstraintActivity" />
         <activity
-            android:name=".coordinator.CoordinatorActivity"
+            android:name=".md.CoordinatorActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".coordinator.CoordinatorNewActivity"
+            android:name=".md.CoordinatorMobileActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".drawable.ShapeDrawableActivity"></activity>
+        <activity android:name=".drawable.ShapeDrawableActivity" />
+        <activity android:name=".md.ToolBarActivity"></activity>
     </application>
 
 </manifest>

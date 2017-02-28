@@ -1,4 +1,4 @@
-package com.huaye.odyandroidstore.main;
+package com.huaye.odyandroidstore.library;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;

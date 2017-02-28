@@ -1,4 +1,4 @@
-package com.huaye.odyandroidstore.main;
+package com.huaye.odyandroidstore.library;
 
 /**
  * Created by sunhuahui on 2017/1/28.

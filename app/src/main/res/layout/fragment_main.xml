@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFF"
     android:clipChildren="false"
-    tools:context="com.huaye.odyandroidstore.main.LibraryFragment">
+    tools:context="com.huaye.odyandroidstore.library.LibraryFragment">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"

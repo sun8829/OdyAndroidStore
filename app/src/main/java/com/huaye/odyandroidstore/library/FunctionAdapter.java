@@ -1,4 +1,4 @@
-package com.huaye.odyandroidstore.main;
+package com.huaye.odyandroidstore.library;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;

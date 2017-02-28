@@ -2,11 +2,7 @@ package com.huaye.odyandroidstore.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-
-import com.huaye.odyandroidstore.R;
-import com.jaeger.library.StatusBarUtil;
 
 /**
  * Created by sunhuahui on 2017/1/28.
@@ -48,7 +44,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(bindLayout());
-        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary), 0);
+        //StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary), 0);
+        // BarUtils.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary), 0);
         init();
         initView();
 

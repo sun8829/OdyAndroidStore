@@ -1,4 +1,4 @@
-package com.huaye.odyandroidstore.main;
+package com.huaye.odyandroidstore.library;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
@@ -20,7 +20,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseFragment;
 import com.huaye.odyandroidstore.constraint.ConstraintActivity;
-import com.huaye.odyandroidstore.coordinator.CoordinatorActivity;
+import com.huaye.odyandroidstore.md.CoordinatorActivity;
+import com.huaye.odyandroidstore.md.CoordinatorMobileActivity;
 import com.huaye.odyandroidstore.drawable.ShapeDrawableActivity;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
@@ -163,7 +164,13 @@ public class LibraryFragment extends BaseFragment {
 
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
-                .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/23/e347481440db465b8077eb74e8505f38.gif")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/28/4918bfd640d30bf080ccaa943de45af3.gif")
+                .setName("CoordinatorLayout使用(高仿【摩拜单车】个人中心)")
+                .setClazz(CoordinatorMobileActivity.class));
+
+        items.add(new Function()
+                .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/28/1d793194404e4c9d80a86aaf1052833d.gif")
                 .setName("CoordinatorLayout进阶")
                 .setClazz(CoordinatorActivity.class));
 

@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.MenuItem;
 
 import com.huaye.odyandroidstore.base.BaseActivity;
-import com.huaye.odyandroidstore.main.LibraryFragment;
+import com.huaye.odyandroidstore.library.LibraryFragment;
 import com.huaye.odyandroidstore.my.MyFragment;
 import com.huaye.odyandroidstore.welfare.WelfareFragment;
 

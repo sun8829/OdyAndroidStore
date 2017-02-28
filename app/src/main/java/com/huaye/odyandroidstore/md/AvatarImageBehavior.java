@@ -1,4 +1,4 @@
-package com.huaye.odyandroidstore.coordinator;
+package com.huaye.odyandroidstore.md;
 
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
@@ -15,7 +15,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
  *
  * @author wangchenlong
  */
-@SuppressWarnings("unused")
 public class AvatarImageBehavior extends CoordinatorLayout.Behavior<CircleImageView> {
 
     private final static float MIN_AVATAR_PERCENTAGE_SIZE = 0.3f;
