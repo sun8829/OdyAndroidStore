@@ -51,7 +51,7 @@ public class CoordinatorMobileActivity extends BaseActivity {
                 int offSetAbs = Math.abs(verticalOffset);
                 float percentage;
                 if (offSetAbs < halfScroll) {
-                    title.setText("膜拜单车");
+                    title.setText("摩拜单车");
                     percentage = 1 - (float) offSetAbs / (float) halfScroll;
                 } else {
                     title.setText("个人中心");

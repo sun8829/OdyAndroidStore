@@ -16,8 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#5DC9D3"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="?attr/actionBarSize"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <RelativeLayout
@@ -137,13 +135,16 @@
                         android:layout_height="wrap_content"
                         android:text="8.3"
                         android:textColor="#F05B48"
-                        android:textSize="20sp" />
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
                         android:text="累计骑行(公里)"
-                        android:textColor="#868686" />
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -161,13 +162,16 @@
                         android:layout_height="wrap_content"
                         android:text="1.0"
                         android:textColor="#F05B48"
-                        android:textSize="20sp" />
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
                         android:text="节约碳排放(千克)"
-                        android:textColor="#868686" />
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
 
                 </LinearLayout>
 
@@ -185,13 +189,16 @@
                         android:layout_height="wrap_content"
                         android:text="551.0"
                         android:textColor="#F05B48"
-                        android:textSize="20sp" />
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
                         android:text="运动成就(大卡)"
-                        android:textColor="#868686" />
+                        android:textColor="#868686"
+                        android:textSize="11sp" />
                 </LinearLayout>
             </LinearLayout>
 
