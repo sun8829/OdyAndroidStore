@@ -10,4 +10,4 @@
 ![Shape使用总结](http://upload-images.jianshu.io/upload_images/4751442-bc2d4d6a13e3fd41.png?imageMogr2/auto-orient/strip%7CimageView2/2)
 
 ## 4、[高仿摩拜单车个人中心](http://www.jianshu.com/p/b68dab7258df)
-![摩拜单车](http://upload-images.jianshu.io/upload_images/4751442-7d6d4f746a4bae26.gif?imageMogr2/auto-orient/strip)
+![摩拜单车](http://bmob-cdn-9267.b0.upaiyun.com/2017/02/28/4918bfd640d30bf080ccaa943de45af3.gif)
