@@ -20,10 +20,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseFragment;
 import com.huaye.odyandroidstore.constraint.ConstraintActivity;
-import com.huaye.odyandroidstore.md.CoordinatorActivity;
-import com.huaye.odyandroidstore.md.CoordinatorMobileActivity;
+import com.huaye.odyandroidstore.customview.CircleMenuActivity;
 import com.huaye.odyandroidstore.drawable.ShapeDrawableActivity;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
+import com.huaye.odyandroidstore.md.CoordinatorActivity;
+import com.huaye.odyandroidstore.md.CoordinatorMobileActivity;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
 import com.huaye.odyandroidstore.utils.ScreenUtils;
 import com.huaye.odyandroidstore.utils.StringUtils;
@@ -148,25 +149,12 @@ public class LibraryFragment extends BaseFragment {
 
     private List<Function> getData() {
         List<Function> items = new ArrayList<>();
-        //items.add(new Function(R.mipmap.exp, "文件管理器", "分组列表", ExpandableActivity.class));
-        items.add(new Function()
-                .setDocUrl("http://www.jianshu.com/p/027395fd3c67")
-                .setImgUrl("http://upload-images.jianshu.io/upload_images/4751442-02adb2faf95c9bd7.png?imageMogr2/auto-orient/strip%7CimageView2/2")
-                .setName("比ExpandableListView更强大的分组列表实现")
-                .setClazz(ExpandableActivity.class));
-
-        //items.add(new Function("https://user-gold-cdn.xitu.io/2017/2/3/96dd3821afded53cc0d74e273bd611dd", "布局", "ConstraintLayout", "https://gold.xitu.io/entry/589461bd8d6d81006c4d7fe4", WebActivity.class));
-        items.add(new Function()
-                .setDocUrl("http://www.jianshu.com/p/b3cd72524b11")
-                .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/19/8a52a75640d5f75080b6f96ba424428d.gif")
-                .setName("ConstraintLayout实战")
-                .setClazz(ConstraintActivity.class));
 
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
-                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/28/4918bfd640d30bf080ccaa943de45af3.gif")
-                .setName("CoordinatorLayout使用(高仿【摩拜单车】个人中心)")
-                .setClazz(CoordinatorMobileActivity.class));
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/28/1d793194404e4c9d80a86aaf1052833d.gif")
+                .setName("圆形菜单")
+                .setClazz(CircleMenuActivity.class));
 
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
@@ -176,9 +164,28 @@ public class LibraryFragment extends BaseFragment {
 
         items.add(new Function()
                 .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/28/4918bfd640d30bf080ccaa943de45af3.gif")
+                .setName("CoordinatorLayout使用(高仿【摩拜单车】个人中心)")
+                .setClazz(CoordinatorMobileActivity.class));
+
+        items.add(new Function()
+                .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
                 .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/24/752b41ef403f1df280eca1229628fb88.png")
                 .setName("shape使用总结")
                 .setClazz(ShapeDrawableActivity.class));
+
+        items.add(new Function()
+                .setDocUrl("http://www.jianshu.com/p/b3cd72524b11")
+                .setImgUrl("http://bmob-cdn-9150.b0.upaiyun.com/2017/02/19/8a52a75640d5f75080b6f96ba424428d.gif")
+                .setName("ConstraintLayout实战")
+                .setClazz(ConstraintActivity.class));
+
+
+        items.add(new Function()
+                .setDocUrl("http://www.jianshu.com/p/027395fd3c67")
+                .setImgUrl("http://upload-images.jianshu.io/upload_images/4751442-02adb2faf95c9bd7.png?imageMogr2/auto-orient/strip%7CimageView2/2")
+                .setName("比ExpandableListView更强大的分组列表实现")
+                .setClazz(ExpandableActivity.class));
 
         return items;
     }

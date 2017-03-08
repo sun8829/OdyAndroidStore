@@ -30,7 +30,8 @@
             android:name=".md.CoordinatorMobileActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".drawable.ShapeDrawableActivity" />
-        <activity android:name=".md.ToolBarActivity"></activity>
+        <activity android:name=".md.ToolBarActivity" />
+        <activity android:name=".customview.CircleMenuActivity"></activity>
     </application>
 
 </manifest>
