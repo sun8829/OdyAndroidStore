@@ -11,11 +11,14 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * Created by sunhuahui on 2017/3/8.
  */
 
-public class CircleMenuLayout extends ViewGroup {
+public class CircleMenuLayout<T> extends ViewGroup {
+    private List<T> mItems;
     private int mRadius;
     /**
      * 该容器内child item的默认尺寸
@@ -173,9 +176,19 @@ public class CircleMenuLayout extends ViewGroup {
     }
 
     /**
+     * 资源加载回调
+     */
+
+    public interface OnLoadResCallback{
+        void showItem(Object menu, ImageView img, TextView txt);
+    }
+
+    /**
      * MenuItem的点击事件接口
      */
     private OnMenuItemClickListener mOnMenuItemClickListener;
+
+    private OnLoadResCallback mLoadCallback;
 
     /**
      * 设置MenuItem的点击事件接口
@@ -220,17 +233,9 @@ public class CircleMenuLayout extends ViewGroup {
             float tmp = layoutRadius / 2f - cWidth / 2 - mPadding;
 
             // tmp cosa 即menu item中心点的横坐标
-            left = layoutRadius
-                    / 2
-                    + (int) Math.round(tmp
-                    * Math.cos(Math.toRadians(mStartAngle)) - 1 / 2f
-                    * cWidth);
+            left = layoutRadius / 2 + (int) Math.round(tmp * Math.cos(Math.toRadians(mStartAngle)) - 1 / 2f * cWidth);
             // tmp sina 即menu item的纵坐标
-            top = layoutRadius
-                    / 2
-                    + (int) Math.round(tmp
-                    * Math.sin(Math.toRadians(mStartAngle)) - 1 / 2f
-                    * cWidth);
+            top = layoutRadius / 2 + (int) Math.round(tmp * Math.sin(Math.toRadians(mStartAngle)) - 1 / 2f * cWidth);
 
             child.layout(left, top, left + cWidth, top + cWidth);
             // 叠加尺寸
@@ -413,6 +418,21 @@ public class CircleMenuLayout extends ViewGroup {
     }
 
     /**
+     * 设置菜单项
+     */
+    public void setMenus(List<T> menus, OnLoadResCallback callback){
+        mItems = menus;
+        mLoadCallback = callback;
+        // 参数检查
+        if (menus == null || menus.size() < 2) {
+            throw new IllegalArgumentException("至少两个菜单");
+        }
+
+        mMenuItemCount = menus.size();
+        addMenus();
+    }
+
+    /**
      * 设置MenuItem的布局文件，必须在setMenuItemIconsAndTexts之前调用
      *
      * @param mMenuItemLayoutId
@@ -454,6 +474,39 @@ public class CircleMenuLayout extends ViewGroup {
                 tv.setText(mItemTexts[i]);
             }
 
+            // 添加view到容器中
+            addView(view);
+        }
+    }
+
+    /**
+     * 添加菜单项
+     */
+    private void addMenus() {
+        LayoutInflater mInflater = LayoutInflater.from(getContext());
+
+        /**
+         * 根据用户设置的参数，初始化view
+         */
+        for (int i = 0; i < mMenuItemCount; i++) {
+            final int j = i;
+            View view = mInflater.inflate(mMenuItemLayoutId, this, false);
+            ImageView iv = (ImageView) view.findViewById(R.id.id_circle_menu_item_image);
+            TextView tv = (TextView) view.findViewById(R.id.id_circle_menu_item_text);
+            iv.setVisibility(VISIBLE);
+            tv.setVisibility(VISIBLE);
+            mLoadCallback.showItem(mItems.get(i), iv, tv);
+            if (iv != null) {
+                iv.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (mOnMenuItemClickListener != null) {
+                            mOnMenuItemClickListener.itemClick(v, j);
+                        }
+                    }
+                });
+            }
             // 添加view到容器中
             addView(view);
         }

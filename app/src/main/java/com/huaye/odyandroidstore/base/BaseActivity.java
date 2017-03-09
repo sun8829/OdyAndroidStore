@@ -1,5 +1,6 @@
 package com.huaye.odyandroidstore.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
+    protected Context mContext;
     protected void preOnCreate() {
 
     }
@@ -44,6 +46,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(bindLayout());
+        mContext = this;
         //StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary), 0);
         // BarUtils.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary), 0);
         init();
