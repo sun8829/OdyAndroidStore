@@ -313,9 +313,7 @@ public class CircleMenuLayout<T> extends ViewGroup {
                 if (getQuadrant(x, y) == 1 || getQuadrant(x, y) == 4) {
                     mStartAngle += end - start;
                     mTmpAngle += end - start;
-                } else
-                // 二、三象限，色角度值是付值
-                {
+                } else {// 二、三象限，色角度值是付值
                     mStartAngle += start - end;
                     mTmpAngle += start - end;
                 }

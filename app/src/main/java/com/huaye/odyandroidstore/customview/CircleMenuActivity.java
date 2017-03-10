@@ -21,12 +21,12 @@ public class CircleMenuActivity extends BaseActivity {
     CircleMenuLayout circleMenu;
     private List<Menu> menuList = new ArrayList<>();
 
-    private String[] mItemTexts = new String[]{"安全中心 ", "特色服务", "投资理财",
-            "转账汇款", "我的账户", "信用卡"};
-    private int[] mItemImgs = new int[]{R.drawable.home_mbank_1_normal,
-            R.drawable.home_mbank_2_normal, R.drawable.home_mbank_3_normal,
-            R.drawable.home_mbank_4_normal, R.drawable.home_mbank_5_normal,
-            R.drawable.home_mbank_6_normal};
+    private String[] mItemTexts = new String[]{"朋友圈 ", "腾讯QQ", "QQ空间",
+            "腾讯微博", "微信好友", "新浪微博"};
+    private int[] mItemImgs = new int[]{R.mipmap.share_friend,
+            R.mipmap.share_qq, R.mipmap.share_qzone,
+            R.mipmap.share_morepics, R.mipmap.share_wechat,
+            R.mipmap.share_weibo};
 
 
     @Override
