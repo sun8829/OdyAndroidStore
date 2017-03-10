@@ -23,9 +23,9 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_centerInParent="true"
-                app:border_width="5dp"
+                android:src="@mipmap/icon_ku_156"
                 app:border_color="@android:color/white"
-                android:src="@mipmap/icon_ku_156" />
+                app:border_width="5dp" />
 
         </RelativeLayout>
     </com.huaye.circlemenu.CircleMenuLayout>

@@ -18,31 +18,28 @@ import java.util.List;
  */
 
 public class CircleMenuLayout<T> extends ViewGroup {
-    private List<T> mItems;
-    private int mRadius;
     /**
      * 该容器内child item的默认尺寸
      */
     private static final float RADIO_DEFAULT_CHILD_DIMENSION = 1 / 4f;
     /**
-     * 菜单的中心child的默认尺寸
-     */
-    private float RADIO_DEFAULT_CENTERITEM_DIMENSION = 1 / 3f;
-    /**
      * 该容器的内边距,无视padding属性，如需边距请用该变量
      */
     private static final float RADIO_PADDING_LAYOUT = 1 / 12f;
-
     /**
      * 当每秒移动角度达到该值时，认为是快速移动
      */
     private static final int FLINGABLE_VALUE = 300;
-
     /**
      * 如果移动角度达到该值，则屏蔽点击
      */
     private static final int NOCLICK_VALUE = 3;
-
+    private List<T> mItems;
+    private int mRadius;
+    /**
+     * 菜单的中心child的默认尺寸
+     */
+    private float RADIO_DEFAULT_CENTERITEM_DIMENSION = 1 / 3f;
     /**
      * 当每秒移动角度达到该值时，认为是快速移动
      */
@@ -84,6 +81,20 @@ public class CircleMenuLayout<T> extends ViewGroup {
     private boolean isFling;
 
     private int mMenuItemLayoutId = R.layout.circle_menu_item;
+    /**
+     * MenuItem的点击事件接口
+     */
+    private OnMenuItemClickListener mOnMenuItemClickListener;
+    private OnLoadResCallback mLoadCallback;
+    /**
+     * 记录上一次的x，y坐标
+     */
+    private float mLastX;
+    private float mLastY;
+    /**
+     * 自动滚动的Runnable
+     */
+    private AutoFlingRunnable mFlingRunnable;
 
     public CircleMenuLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -111,8 +122,7 @@ public class CircleMenuLayout<T> extends ViewGroup {
         /**
          * 如果宽或者高的测量模式非精确值
          */
-        if (widthMode != MeasureSpec.EXACTLY
-                || heightMode != MeasureSpec.EXACTLY) {
+        if (widthMode != MeasureSpec.EXACTLY || heightMode != MeasureSpec.EXACTLY) {
             // 主要设置为背景图的高度
             resWidth = getSuggestedMinimumWidth();
             // 如果未设置背景图片，则设置为屏幕宽高的默认值
@@ -163,32 +173,6 @@ public class CircleMenuLayout<T> extends ViewGroup {
         mPadding = RADIO_PADDING_LAYOUT * mRadius;
 
     }
-
-    /**
-     * MenuItem的点击事件接口
-     *
-     * @author zhy
-     */
-    public interface OnMenuItemClickListener {
-        void itemClick(View view, int pos);
-
-        void itemCenterClick(View view);
-    }
-
-    /**
-     * 资源加载回调
-     */
-
-    public interface OnLoadResCallback{
-        void showItem(Object menu, ImageView img, TextView txt);
-    }
-
-    /**
-     * MenuItem的点击事件接口
-     */
-    private OnMenuItemClickListener mOnMenuItemClickListener;
-
-    private OnLoadResCallback mLoadCallback;
 
     /**
      * 设置MenuItem的点击事件接口
@@ -261,17 +245,6 @@ public class CircleMenuLayout<T> extends ViewGroup {
         }
 
     }
-
-    /**
-     * 记录上一次的x，y坐标
-     */
-    private float mLastX;
-    private float mLastY;
-
-    /**
-     * 自动滚动的Runnable
-     */
-    private AutoFlingRunnable mFlingRunnable;
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
@@ -418,7 +391,7 @@ public class CircleMenuLayout<T> extends ViewGroup {
     /**
      * 设置菜单项
      */
-    public void setMenus(List<T> menus, OnLoadResCallback callback){
+    public void setMenus(List<T> menus, OnLoadResCallback callback) {
         mItems = menus;
         mLoadCallback = callback;
         // 参数检查
@@ -538,6 +511,25 @@ public class CircleMenuLayout<T> extends ViewGroup {
         DisplayMetrics outMetrics = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(outMetrics);
         return Math.min(outMetrics.widthPixels, outMetrics.heightPixels);
+    }
+
+    /**
+     * MenuItem的点击事件接口
+     *
+     * @author zhy
+     */
+    public interface OnMenuItemClickListener {
+        void itemClick(View view, int pos);
+
+        void itemCenterClick(View view);
+    }
+
+    /**
+     * 资源加载回调
+     */
+
+    public interface OnLoadResCallback {
+        void showItem(Object menu, ImageView img, TextView txt);
     }
 
     /**
