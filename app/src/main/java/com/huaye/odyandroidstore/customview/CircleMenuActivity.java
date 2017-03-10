@@ -68,16 +68,14 @@ public class CircleMenuActivity extends BaseActivity {
         circleMenu.setOnMenuItemClickListener(new CircleMenuLayout.OnMenuItemClickListener(){
 
             @Override
-            public void itemClick(View view, int pos)
-            {
+            public void itemClick(View view, int pos){
                 Toast.makeText(CircleMenuActivity.this, mItemTexts[pos],
                         Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
-            public void itemCenterClick(View view)
-            {
+            public void itemCenterClick(View view){
                 Toast.makeText(CircleMenuActivity.this,
                         "you can do something just like ccb  ",
                         Toast.LENGTH_SHORT).show();

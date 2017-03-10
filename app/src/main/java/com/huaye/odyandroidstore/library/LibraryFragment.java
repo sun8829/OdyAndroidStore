@@ -151,8 +151,8 @@ public class LibraryFragment extends BaseFragment {
         List<Function> items = new ArrayList<>();
 
         items.add(new Function()
-                .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
-                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/28/1d793194404e4c9d80a86aaf1052833d.gif")
+                .setDocUrl("http://www.jianshu.com/p/34b35a8c0a1c")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/03/10/490877fa40a9614e80f5ce50c0a7668e.gif")
                 .setName("圆形菜单")
                 .setClazz(CircleMenuActivity.class));
 
