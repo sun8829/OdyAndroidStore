@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@mipmap/tb_icon_actionbar_more"
+        android:title=""
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/message"
+                android:icon="@mipmap/tb_icon_more_cart_56"
+                android:title="消息"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/home"
+                android:icon="@mipmap/tb_icon_more_home_56"
+                android:title="首页"
+                app:showAsAction="never" />
+
+            <item
+                android:icon="@mipmap/tb_icon_more_my_56"
+                android:title="帮助"
+                app:showAsAction="never" />
+
+            <item
+                android:icon="@mipmap/tb_icon_more_nearby_56"
+                android:title="我要反馈"
+                app:showAsAction="never" />
+
+            <item
+                android:icon="@mipmap/tb_icon_more_msg_56"
+                android:title="分享"
+                app:showAsAction="never" />
+        </menu>
+    </item>
+</menu>

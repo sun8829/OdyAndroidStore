@@ -31,7 +31,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".drawable.ShapeDrawableActivity" />
         <activity android:name=".md.ToolBarActivity" />
-        <activity android:name=".customview.CircleMenuActivity"></activity>
+        <activity android:name=".customview.CircleMenuActivity" />
+        <activity android:name=".imitate.taobao.TaobaoSearchResultActivity"></activity>
     </application>
 
 </manifest>
