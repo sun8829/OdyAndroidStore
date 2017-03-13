@@ -170,14 +170,14 @@ public class LibraryFragment extends BaseFragment {
                 .setClazz(CoordinatorActivity.class));
 
         items.add(new Function()
-                .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
+                .setDocUrl("http://www.jianshu.com/p/b68dab7258df")
                 .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/28/4918bfd640d30bf080ccaa943de45af3.gif")
                 .setName("CoordinatorLayout使用(高仿【摩拜单车】个人中心)")
                 .setClazz(CoordinatorMobileActivity.class));
 
         items.add(new Function()
-                .setDocUrl("https://github.com/samuelhuahui/OdyAndroidStore/wiki")
-                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/02/24/752b41ef403f1df280eca1229628fb88.png")
+                .setDocUrl("http://www.jianshu.com/p/aa6c9b377cb0")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/03/13/7a63162b40df4eec80e02d030c9cad9b.png")
                 .setName("shape使用总结")
                 .setClazz(ShapeDrawableActivity.class));
 
