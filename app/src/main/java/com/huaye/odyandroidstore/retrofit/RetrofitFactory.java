@@ -2,6 +2,9 @@ package com.huaye.odyandroidstore.retrofit;
 
 import com.huaye.odyandroidstore.retrofit.taobao.TaoBaoProductBean;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import rx.Observable;
 
 /**
@@ -28,7 +31,23 @@ public class RetrofitFactory {
      * @param q
      * @return
      */
-    public static Observable<TaoBaoProductBean> getProductList(String q, int page) {
-        return getNetWorkApi().getProductList(q, page);
+    public static Observable<TaoBaoProductBean> getProductList(String q, String page) {
+        Map<String, String> params = new HashMap<>();
+        params.put("q", q);
+        params.put("page", page);
+        return getNetWorkApi().getProductList(params);
+    }
+
+    /**
+     * 获取分类页数据
+     *
+     * @return
+     */
+    public static Observable<TaoBaoProductBean> getProductList(Map<String, String> params) {
+//        Map<String, String> params = new HashMap<>();
+//        params.put("q", q);
+//        params.put("page", page);
+//        params.put("sort", sort);
+        return getNetWorkApi().getProductList(params);
     }
 }

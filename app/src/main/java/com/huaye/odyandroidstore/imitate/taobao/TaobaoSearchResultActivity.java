@@ -1,11 +1,18 @@
 package com.huaye.odyandroidstore.imitate.taobao;
 
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.widget.PopupWindowCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.huaye.odyandroidstore.R;
@@ -31,9 +38,21 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
 
     @BindView(R.id.mps)
     RecyclerView mps;
+
+    @BindView(R.id.sort)
+    LinearLayout sort;
+
+    @BindView(R.id.sortLin)
+    LinearLayout sortLin;
+
+    @BindView(R.id.sort_sale)
+    TextView sortSale;
+
     private int page = 1;
+    private String sortType;
     private ProductAdapter adapter;
     private SearchResultPresenter presenter;
+    private PopupWindow popupWindow;
 
     @Override
     protected void init() {
@@ -57,6 +76,9 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
 
         mps.setLayoutManager(new LinearLayoutManager(this));
         mps.setAdapter(adapter);
+
+        //初始化排序弹层
+        initPopWindow();
     }
 
     @Override
@@ -78,9 +100,80 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
         adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
             @Override
             public void onLoadMoreRequested() {
-                presenter.getProductList("SD卡", ++page);
+                presenter.getProductList("SD卡", ++page, sortType);
             }
         }, mps);
+
+        sort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showPopWindow(view);
+            }
+        });
+
+        sortSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sortSale.setSelected(true);
+                page = 1;
+                sortType = "_sale";
+                presenter.getProductList("SD卡", page, sortType);
+            }
+        });
+
+        mps.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
+                if (recyclerView.canScrollVertically(-1)) {//表示是否能向下滚动，false表示已经滚动到顶部
+
+                }
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+    }
+
+    private void initPopWindow() {
+        popupWindow = new PopupWindow(this);
+        View view = LayoutInflater.from(this).inflate(R.layout.popup_sort, null);
+        popupWindow.setContentView(view);
+        popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        //PopupWindow对象设置高度
+        popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+        //PopupWindow对象设置获取焦点
+        popupWindow.setFocusable(true);
+        //PopupWindow对象设置可以触发点击事件
+        popupWindow.setTouchable(true);
+        popupWindow.setOutsideTouchable(true);
+        popupWindow.setBackgroundDrawable(new ColorDrawable(0));
+        popupWindow.setAnimationStyle(android.R.style.Animation);
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+            }
+        });
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupWindow.dismiss();
+            }
+        });
+    }
+
+    private void showPopWindow(View anchor) {
+        //使用V4提供的PopupWindowCompat的showAsDropDown方法显示出PopupWindow对象
+        //五个参数为：
+        //popup - 需要显示的PopupWindow对象
+        //anchor - 需要在什么View组件上显示
+        //xoff - 显示在View组件上X轴横向坐标点
+        //yoff - 显示在View组件上Y轴横向坐标点
+        //gravity - 显示的对齐方式
+        PopupWindowCompat.showAsDropDown(popupWindow, anchor, 0, 0, Gravity.LEFT);
     }
 
     @Override

@@ -4,6 +4,10 @@ import com.huaye.odyandroidstore.retrofit.RetrofitFactory;
 import com.huaye.odyandroidstore.retrofit.taobao.TaoBaoProductBean;
 import com.huaye.odyandroidstore.subscribe.ApiSubscriber;
 import com.huaye.odyandroidstore.subscribe.SubscriberListener;
+import com.huaye.odyandroidstore.utils.StringUtils;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -20,7 +24,17 @@ public class SearchResultPresenter {
     }
 
     public void getProductList(String key, final int page) {
-        RetrofitFactory.getProductList(key, page)
+        getProductList(key, page, null);
+    }
+
+    public void getProductList(String key, final int page, String sort) {
+        Map<String, String> params = new HashMap<>();
+        params.put("q", key);
+        params.put("page", String.valueOf(page));
+        if (!StringUtils.isEmpty(sort)) {
+            params.put("sort", sort);
+        }
+        RetrofitFactory.getProductList(params)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new ApiSubscriber<TaoBaoProductBean>(new SubscriberListener<TaoBaoProductBean>() {

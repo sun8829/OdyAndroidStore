@@ -115,6 +115,7 @@
         </RadioGroup>
 
         <LinearLayout
+            android:id="@+id/sortLin"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="#D1D1D1"
@@ -129,6 +130,7 @@
                 android:gravity="center_vertical">
 
                 <LinearLayout
+                    android:id="@+id/sort"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -150,12 +152,13 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/sort_sale"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="销量优先"
-                    android:textColor="@color/black" />
+                    android:textColor="@drawable/selector_taobao_tab_txt" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -197,4 +200,27 @@
 
 
     </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_margin="16dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/shape_taobao_jiao_bg"
+            android:padding="6dp"
+            android:src="@mipmap/trail" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_taobao_jiao_bg"
+            android:padding="6dp"
+            android:src="@mipmap/arrow_up" />
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
