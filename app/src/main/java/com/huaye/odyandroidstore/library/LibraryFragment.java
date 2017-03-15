@@ -153,7 +153,7 @@ public class LibraryFragment extends BaseFragment {
 
         items.add(new Function()
                 .setDocUrl("http://www.jianshu.com/p/34b35a8c0a1c")
-                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/03/10/490877fa40a9614e80f5ce50c0a7668e.gif")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/03/15/ee12d5414021046680f60aeef39f2f58.gif")
                 .setName("高仿淘宝搜索结果页")
                 .setClazz(TaobaoSearchResultActivity.class));
 

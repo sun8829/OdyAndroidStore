@@ -206,19 +206,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right|bottom"
         android:layout_margin="16dp"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/shape_taobao_jiao_bg"
             android:padding="6dp"
             android:src="@mipmap/trail" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/up_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:background="@drawable/shape_taobao_jiao_bg"
             android:padding="6dp"
             android:src="@mipmap/arrow_up" />

@@ -1,7 +1,7 @@
 package com.huaye.odyandroidstore.imitate.taobao;
 
+import android.animation.ValueAnimator;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v4.widget.PopupWindowCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -19,6 +20,8 @@ import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseActivity;
 import com.huaye.odyandroidstore.retrofit.taobao.ProductAdapter;
 import com.huaye.odyandroidstore.retrofit.taobao.TaoBaoProductBean;
+import com.huaye.odyandroidstore.utils.ConvertUtils;
+import com.huaye.odyandroidstore.utils.ScreenUtils;
 
 import java.util.List;
 
@@ -47,6 +50,9 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
 
     @BindView(R.id.sort_sale)
     TextView sortSale;
+
+    @BindView(R.id.up_img)
+    ImageView upImg;
 
     private int page = 1;
     private String sortType;
@@ -129,11 +135,41 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                ValueAnimator animator;
+                final LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) upImg.getLayoutParams();
 
                 if (recyclerView.canScrollVertically(-1)) {//表示是否能向下滚动，false表示已经滚动到顶部
+                    animator = ValueAnimator.ofFloat(0f, 1f);
+                    if (animator.isRunning() || params.width > 0)
+                        return;
+                } else {
 
+                    animator = ValueAnimator.ofFloat(1f, 0f);
+                    if (animator.isRunning() || params.width == 0) {
+                        return;
+                    }
                 }
+
+                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        float value = (float) valueAnimator.getAnimatedValue();
+
+                        params.width = (int) (ConvertUtils.dp2px(36) * value);
+                        params.height = (int) (ConvertUtils.dp2px(36) * value);
+                        upImg.setLayoutParams(params);
+                    }
+                });
+                animator.setDuration(1000);
+                animator.start();
                 super.onScrolled(recyclerView, dx, dy);
+            }
+        });
+
+        upImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mps.scrollToPosition(0);
             }
         });
     }
@@ -142,7 +178,7 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
         popupWindow = new PopupWindow(this);
         View view = LayoutInflater.from(this).inflate(R.layout.popup_sort, null);
         popupWindow.setContentView(view);
-        popupWindow.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
+        popupWindow.setWidth(ScreenUtils.getScreenWidth());
         //PopupWindow对象设置高度
         popupWindow.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
         //PopupWindow对象设置获取焦点
@@ -166,14 +202,16 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
     }
 
     private void showPopWindow(View anchor) {
-        //使用V4提供的PopupWindowCompat的showAsDropDown方法显示出PopupWindow对象
-        //五个参数为：
-        //popup - 需要显示的PopupWindow对象
-        //anchor - 需要在什么View组件上显示
-        //xoff - 显示在View组件上X轴横向坐标点
-        //yoff - 显示在View组件上Y轴横向坐标点
-        //gravity - 显示的对齐方式
-        PopupWindowCompat.showAsDropDown(popupWindow, anchor, 0, 0, Gravity.LEFT);
+        if (android.os.Build.VERSION.SDK_INT >= 24) {
+            int[] a = new int[2];
+            anchor.getLocationInWindow(a);
+            //PopupWindow对象设置高度
+            popupWindow.setHeight(ScreenUtils.getScreenHeight() - a[1] - anchor.getHeight());
+            popupWindow.showAtLocation(getWindow().getDecorView(), Gravity.NO_GRAVITY, 0, a[1] + anchor.getHeight());
+        } else {
+            popupWindow.showAsDropDown(anchor);
+        }
+        popupWindow.update();
     }
 
     @Override
