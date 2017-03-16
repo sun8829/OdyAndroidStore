@@ -4,6 +4,7 @@ import android.animation.ValueAnimator;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,10 +19,10 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseActivity;
-import com.huaye.odyandroidstore.retrofit.taobao.ProductAdapter;
 import com.huaye.odyandroidstore.retrofit.taobao.TaoBaoProductBean;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
 import com.huaye.odyandroidstore.utils.ScreenUtils;
+import com.huaye.odyandroidstore.widget.DecorationSpace;
 
 import java.util.List;
 
@@ -33,7 +34,8 @@ import butterknife.ButterKnife;
  * Samuel
  */
 public class TaobaoSearchResultActivity extends BaseActivity implements SearchResultView {
-
+    private static final int LIST = 0;
+    private static final int GRID = 1;
     @BindView(R.id.toolBar)
     Toolbar toolBar;
     @BindView(R.id.tabs)
@@ -54,6 +56,10 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
     @BindView(R.id.up_img)
     ImageView upImg;
 
+    @BindView(R.id.showTypeImg)
+    ImageView showTypeImg;
+
+    private int showType = LIST;
     private int page = 1;
     private String sortType;
     private ProductAdapter adapter;
@@ -63,7 +69,6 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
     @Override
     protected void init() {
         super.init();
-        adapter = new ProductAdapter();
         presenter = new SearchResultPresenter(this);
     }
 
@@ -80,9 +85,10 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
         toolBar.setTitle("");
         setSupportActionBar(toolBar);
 
+        adapter = new ProductAdapter(R.layout.item_taobao_product);
         mps.setLayoutManager(new LinearLayoutManager(this));
+        mps.addItemDecoration(new DecorationSpace(ConvertUtils.dp2px(3)));
         mps.setAdapter(adapter);
-
         //初始化排序弹层
         initPopWindow();
     }
@@ -102,14 +108,7 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
                 finish();
             }
         });
-
-        adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
-            @Override
-            public void onLoadMoreRequested() {
-                presenter.getProductList("SD卡", ++page, sortType);
-            }
-        }, mps);
-
+        setUpdateListener(adapter);
         sort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,6 +119,7 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
         sortSale.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //销量排序
                 sortSale.setSelected(true);
                 page = 1;
                 sortType = "_sale";
@@ -135,6 +135,7 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                //滑动到顶部按钮展示
                 ValueAnimator animator;
                 final LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) upImg.getLayoutParams();
 
@@ -149,7 +150,6 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
                         return;
                     }
                 }
-
                 animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -172,6 +172,35 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
                 mps.scrollToPosition(0);
             }
         });
+
+        //网格和列表展示切换
+        showTypeImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (showType == LIST) {
+                    showType = GRID;
+                    showTypeImg.setImageResource(R.mipmap.grid);
+                    adapter = new ProductAdapter(R.layout.item_taobao_product_grid, adapter.getData());
+                    mps.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+                } else {
+                    showType = LIST;
+                    showTypeImg.setImageResource(R.mipmap.list);
+                    adapter = new ProductAdapter(R.layout.item_taobao_product, adapter.getData());
+                    mps.setLayoutManager(new LinearLayoutManager(mContext));
+                }
+                mps.setAdapter(adapter);
+                setUpdateListener(adapter);
+            }
+        });
+    }
+
+    private void setUpdateListener(ProductAdapter adapter) {
+        adapter.setOnLoadMoreListener(new BaseQuickAdapter.RequestLoadMoreListener() {
+            @Override
+            public void onLoadMoreRequested() {
+                presenter.getProductList("SD卡", ++page, sortType);
+            }
+        }, mps);
     }
 
     private void initPopWindow() {

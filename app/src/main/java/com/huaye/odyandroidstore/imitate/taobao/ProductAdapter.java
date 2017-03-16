@@ -1,4 +1,4 @@
-package com.huaye.odyandroidstore.retrofit.taobao;
+package com.huaye.odyandroidstore.imitate.taobao;
 
 import android.widget.ImageView;
 
@@ -7,6 +7,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.huaye.odyandroidstore.R;
+import com.huaye.odyandroidstore.retrofit.taobao.TaoBaoProductBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,10 @@ import java.util.List;
 public class ProductAdapter extends BaseQuickAdapter<TaoBaoProductBean.Product, BaseViewHolder> {
     public ProductAdapter() {
         this(R.layout.item_taobao_product, new ArrayList<TaoBaoProductBean.Product>());
+    }
+
+    public ProductAdapter(int layoutResId) {
+        super(layoutResId, new ArrayList<TaoBaoProductBean.Product>());
     }
 
     public ProductAdapter(int layoutResId, List<TaoBaoProductBean.Product> data) {
