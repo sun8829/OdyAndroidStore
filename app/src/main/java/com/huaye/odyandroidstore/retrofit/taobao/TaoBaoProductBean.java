@@ -1,12 +1,15 @@
 package com.huaye.odyandroidstore.retrofit.taobao;
 
+import com.huaye.odyandroidstore.base.BaseBean;
+
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Samuel on 2017/3/13.
  */
 
-public class TaoBaoProductBean {
+public class TaoBaoProductBean extends BaseBean implements Serializable {
 
 
     /**
@@ -27,7 +30,7 @@ public class TaoBaoProductBean {
     public String defaultViewType;
     public List<Product> listItem;
 
-    public static class Product {
+    public static class Product implements Serializable {
         /**
          * type : fixed
          * tItemType : nt_auction
