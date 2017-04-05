@@ -5,7 +5,7 @@ android {
         release {
             keyAlias '华晔软件工作室'
             keyPassword 'samuel'
-            storeFile file('E:/Android/demo/OdyAndroidStore/app/keystore/huaye.jks')
+            storeFile file('/Users/sunhuahui/Desktop/work/android/OdyAndroidStore/app/keystore/huaye.jks')
             storePassword 'samuel'
         }
     }
@@ -17,16 +17,19 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+
+        resConfigs "zh"
     }
     buildTypes {
         debug {
             signingConfig signingConfigs.release
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
             signingConfig signingConfigs.release
             minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -38,11 +41,11 @@ dependencies {
     compile project(':circlemenu')
     compile('com.android.support:appcompat-v7:' + rootProject.ext.dependencies.support_version)
     compile('com.android.support:recyclerview-v7:' + rootProject.ext.dependencies.support_version)
-    compile('com.android.support:customtabs:' + rootProject.ext.dependencies.support_version)
+//    compile('com.android.support:customtabs:' + rootProject.ext.dependencies.support_version)
     compile('com.android.support:design:' + rootProject.ext.dependencies.support_version)
     compile('com.android.support:cardview-v7:' + rootProject.ext.dependencies.support_version)
     compile('com.android.support:support-v4:' + rootProject.ext.dependencies.support_version)
-    compile('com.android.support.constraint:constraint-layout:1.0.0-beta4')
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:+'
     //compile 'io.reactivex:rxandroid:1.0.0'
     //compile 'io.reactivex:rxjava:1.2.5'
@@ -60,12 +63,8 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'de.hdodenhof:circleimageview:1.3.0'
-
     //Bmob依赖包
     compile 'cn.bmob.android:bmob-sdk:3.5.3'
-
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-
-
 }
