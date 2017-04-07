@@ -5,7 +5,7 @@ android {
         release {
             keyAlias '华晔软件工作室'
             keyPassword 'samuel'
-            storeFile file('E:/Android/demo/OdyAndroidStore/app/keystore/huaye.jks')
+            storeFile file('/keystore/huaye.jks')
             storePassword 'samuel'
         }
     }

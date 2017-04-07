@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import java.util.Collections;
-
 /**
  * Created by sunhuahui on 2017/1/28.
  */
@@ -58,8 +56,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initData();
         initListener();
-
-        Collections.synchronizedMap()
     }
 
 }
