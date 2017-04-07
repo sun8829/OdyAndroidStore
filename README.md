@@ -1,4 +1,5 @@
 # 安卓开发宝典
+## 7、[热修复-HotFix]()
 ## 6、[高仿淘宝搜索结果页]()
 ![](http://bmob-cdn-9267.b0.upaiyun.com/2017/03/15/ee12d5414021046680f60aeef39f2f58.gif)
 ## 5、[圆形菜单](http://www.jianshu.com/p/34b35a8c0a1c)
