@@ -10,6 +10,8 @@ import com.huaye.odyandroidstore.library.LibraryFragment;
 import com.huaye.odyandroidstore.my.MyFragment;
 import com.huaye.odyandroidstore.welfare.WelfareFragment;
 
+import cn.bmob.v3.Bmob;
+
 public class MainActivity extends BaseActivity {
     private LibraryFragment libraryFragment;
     private WelfareFragment welfareFragment;
@@ -20,6 +22,7 @@ public class MainActivity extends BaseActivity {
     protected void init() {
         super.init();
         fm = getSupportFragmentManager();
+        Bmob.initialize(this, "c1bc52fe17266edafa7b25b1ccf4edbd");
     }
 
     @Override

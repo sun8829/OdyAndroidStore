@@ -23,6 +23,7 @@ import com.huaye.odyandroidstore.constraint.ConstraintActivity;
 import com.huaye.odyandroidstore.customview.CircleMenuActivity;
 import com.huaye.odyandroidstore.drawable.ShapeDrawableActivity;
 import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
+import com.huaye.odyandroidstore.hotfix.HotFixActivity;
 import com.huaye.odyandroidstore.imitate.taobao.TaobaoSearchResultActivity;
 import com.huaye.odyandroidstore.md.CoordinatorActivity;
 import com.huaye.odyandroidstore.md.CoordinatorMobileActivity;
@@ -150,6 +151,18 @@ public class LibraryFragment extends BaseFragment {
 
     private List<Function> getData() {
         List<Function> items = new ArrayList<>();
+
+        items.add(new Function()
+                .setDocUrl("http://www.jianshu.com/p/34b35a8c0a1c")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/03/15/ee12d5414021046680f60aeef39f2f58.gif")
+                .setName("来伊份---首页")
+                .setClazz(HotFixActivity.class));
+
+        items.add(new Function()
+                .setDocUrl("http://www.jianshu.com/p/34b35a8c0a1c")
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/03/15/ee12d5414021046680f60aeef39f2f58.gif")
+                .setName("热修复---AndFix")
+                .setClazz(HotFixActivity.class));
 
         items.add(new Function()
                 .setDocUrl("http://www.jianshu.com/p/34b35a8c0a1c")

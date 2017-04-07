@@ -44,8 +44,7 @@ dependencies {
     compile('com.android.support:support-v4:' + rootProject.ext.dependencies.support_version)
     compile('com.android.support.constraint:constraint-layout:1.0.0-beta4')
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:+'
-    //compile 'io.reactivex:rxandroid:1.0.0'
-    //compile 'io.reactivex:rxjava:1.2.5'
+
     compile('com.squareup.retrofit2:retrofit:2.1.0') {
         exclude group: 'com.squareup.okhttp3'
     }
@@ -67,5 +66,9 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 
+    //热修复
+    compile 'com.taobao.android:alisdk-hotfix:2.0.6'
 
+    //下拉刷新
+    compile 'com.dinuscxj:recyclerrefreshlayout:2.0.3'
 }

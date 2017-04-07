@@ -37,8 +37,6 @@ public class CircleMenuActivity extends BaseActivity {
     @Override
     protected void initView() {
         ButterKnife.bind(this);
-
-
     }
 
     @Override

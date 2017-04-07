@@ -2,11 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.huaye.odyandroidstore">
 
-    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".base.App"
@@ -34,7 +37,21 @@
         <activity android:name=".drawable.ShapeDrawableActivity" />
         <activity android:name=".md.ToolBarActivity" />
         <activity android:name=".customview.CircleMenuActivity" />
-        <activity android:name=".imitate.taobao.TaobaoSearchResultActivity"></activity>
+        <activity android:name=".imitate.taobao.TaobaoSearchResultActivity" />
+        <activity android:name=".hotfix.HotFixActivity" />
+
+        <!-- HotFix -->
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="85942-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="7632072f94bc1a3f7961b2874d85dba7" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCBpUZZxyCPY/GvmLG+MsIUWRW4HDgDn2FqFwL3XxSaGpwO+UivVRPggX6C2ASwO6KYo05sESiTmJ7wjzzlHZCLluuc4tyHM1VC6dmKfBBvzw4iisKTJdYh8I+oICnzQTzijxK+J9x3QAOJ7jMyQJm96EVqsGR1ylz+nJueCT79KUYXTwS93+tCgF+G4I+KT9Lo8RFywHvpn8x/z0IiELYIfWdzj90QylGnX0RdTHFfEld1Rll9/NfM960cMo4TFfoOz4fX9loGh9WtfAXfcGWwvCliWHeLil1KmJ8u/2YfR8mgcZlHCAU1FJZDDQgRaTQ7/1ALFn97WFryg1gM9pmJAgMBAAECggEADmpJGzxn42myetrYkJRmPgr1vkXs+IIlO72ZR9YbnVLuHUAck9o63pCnd3b7dnj7CEvIMX3q7BZhPdA/bh5Obyb1xbj32lSb21fTJ3HKBhSYtsCFCAWB/L4ZyxDgeTq8wVg1Nk2KVvwYKKMCsEi8j4AfD9DTKsG4e1sAdp8CkPV4So9MM5oS8cdhD5hV9CWQWiAfZn4DqZN7Kcq+uunkkuOoimiuxQlGOlXLPdNmXTQSZKfURDWsvHRooNeX7txxHUijTbIieoWLuVcV0HbGpD//0T9dlqcoJvO+dwgFrr/Jqh4mUtW6/763GybEPobHMUYKivdsQtJMbJfdKXBZTQKBgQDCouAieUUhPbrWzomSra44a1o9r5H9KWpimQCyOO6EBZqYJtodslkygRxboE2CmOtiwm78+fSGiUE6nSBdb8WFpyKdIewBX1DuxTBWBO8u6M11x1RUYLnHSN6vNLuwfzj/YvAzUvAfjnAthe4t6fWKUqySCFPWuTbYjnbrGh7THwKBgQCqhP6LCoX47HwUpeHOb8/sf1Q8QXaUH/iKbGDdWfzeei7RebR5/rVNQU+/MQvasWjXO7Q7qra+unNYEapHvPtePzaTJxykuVdavQ5Xub3qr6tjW4cllzP6g0sVk2I2mW/Fti/p8P/6iYdTazwIPFqgCauzVKbuzRJ28R/uklHmVwKBgQCYnZYZ8fUex4SFgpWlCcKeQq8Tx2M1mw/sGATPuoxrwOkjfPNybbI7Q7m0rtGYIcgQPF1Cx8vQ4jbfeu0x1r6OuisOAtdHjDGtx7jK+juCENFqFM4vC1kgxia2QycYkeljd3TZCaN3Wvzi9S15mwYJXCIsr5Ltv3UeATeFyYl6CQKBgGO3lHdQ9xmjicg1XYBwiKIfr+3wxlxG+fxQ9rBbMHIV940OZAk3d2SvPehr0SfZuZqsUnDWGzocJNmqsu5yyHjL9KlHJQv7SudISbvpZfN5OXvICZdk/cOQxfbfEn8laWSwbwKaqcckZ9vTiO60BLc0EJG1fk2F5TdjOK42KOjPAoGAESCVRHlqpu7fAa/EmSyuVNu9JsPWZA6hKFNp1ckghboWJimkOExbyVWPylgjJ/8emB+WuIni/uLPqCGp6Nei3jEXRUCfMZ0326oN6V9iOQDWpbB96aVbY+XWWdOWkFXpgFbnViYxTdunWy4qwjOnaJcEA1z4whHwrD6AvM6G/Xo=" />
+
+        <activity android:name=".imitate.lyf.home.LYFHomeActivity"></activity>
     </application>
 
 </manifest>
