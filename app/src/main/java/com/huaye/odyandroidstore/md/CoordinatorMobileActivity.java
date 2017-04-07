@@ -14,7 +14,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Administrator on 2017/2/23.
+ *
+ * 摩拜单车---个人中心
+ * Created by 孙华辉 on 2017/2/23.
  */
 
 public class CoordinatorMobileActivity extends BaseActivity {
