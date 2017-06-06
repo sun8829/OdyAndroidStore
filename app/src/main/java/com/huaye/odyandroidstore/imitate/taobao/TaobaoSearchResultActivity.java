@@ -2,6 +2,8 @@ package com.huaye.odyandroidstore.imitate.taobao;
 
 import android.animation.ValueAnimator;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -58,7 +60,18 @@ public class TaobaoSearchResultActivity extends BaseActivity implements SearchRe
 
     @BindView(R.id.showTypeImg)
     ImageView showTypeImg;
-
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+        }
+    };
+    Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+        }
+    };
     private int showType = LIST;
     private int page = 1;
     private String sortType;

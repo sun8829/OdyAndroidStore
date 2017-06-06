@@ -19,6 +19,14 @@ android {
         versionName rootProject.ext.android.versionName
 
         resConfigs "zh"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         debug {
@@ -37,6 +45,12 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+
     //圆型菜单
     compile project(':circlemenu')
     compile('com.android.support:appcompat-v7:' + rootProject.ext.dependencies.support_version)
@@ -73,4 +87,8 @@ dependencies {
 
     //下拉刷新
     compile 'com.dinuscxj:recyclerrefreshlayout:2.0.3'
+
+    //路由
+    compile 'com.alibaba:arouter-api:1.2.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.2'
 }

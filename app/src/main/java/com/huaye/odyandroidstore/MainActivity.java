@@ -3,8 +3,12 @@ package com.huaye.odyandroidstore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.MenuItem;
 
+import com.alibaba.android.arouter.facade.Postcard;
+import com.alibaba.android.arouter.facade.callback.NavCallback;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.huaye.odyandroidstore.base.BaseActivity;
 import com.huaye.odyandroidstore.library.LibraryFragment;
 import com.huaye.odyandroidstore.my.MyFragment;
@@ -33,7 +37,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void initView() {
         navigationView = (BottomNavigationView) findViewById(R.id.nav);
-
         libraryFragment = new LibraryFragment();
         fm.beginTransaction().replace(R.id.container, libraryFragment).commitAllowingStateLoss();
     }
@@ -56,6 +59,28 @@ public class MainActivity extends BaseActivity {
                         break;
                 }
                 return true;
+            }
+        });
+
+        ARouter.getInstance().build("/xxx/xxx").navigation(this, new NavCallback() {
+            @Override
+            public void onFound(Postcard postcard) {
+                Log.d("ARouter", "找到了");
+            }
+
+            @Override
+            public void onLost(Postcard postcard) {
+                Log.d("ARouter", "找不到了");
+            }
+
+            @Override
+            public void onArrival(Postcard postcard) {
+                Log.d("ARouter", "跳转完了");
+            }
+
+            @Override
+            public void onInterrupt(Postcard postcard) {
+                Log.d("ARouter", "被拦截了");
             }
         });
     }

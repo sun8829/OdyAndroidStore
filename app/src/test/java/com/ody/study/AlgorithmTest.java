@@ -1,4 +1,4 @@
-package com.ody.temp;
+package com.ody.study;
 
 import org.junit.Test;
 
@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class ExampleUnitTest {
+public class AlgorithmTest {
     private Map<String, String> map = new HashMap<String, String>() {{
         put("key1", "value1");
         put("key1", "value1");

@@ -8,8 +8,8 @@ ext {
             versionName      : "1.0.0"
     ]
     dependencies = [
-            "appcompat-v7"   : "com.android.support:appcompat-v7:23.2.1",
-            "design"         : "com.android.support:design:23.2.1",
+            "appcompat-v7"   : "com.android.support:appcompat-v7:25.0.3",
+            "design"         : "com.android.support:design:25.0.3",
             "support_version": "25.2.0"
 
     ]
