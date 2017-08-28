@@ -19,6 +19,11 @@ public class AlgorithmTest {
         put("key1", "value1");
     }};
 
+    /**
+     * 冒泡法
+     *
+     * @throws Exception
+     */
     @Test
     public void bubbleSortTest() throws Exception {
 
@@ -103,8 +108,14 @@ public class AlgorithmTest {
         System.out.println();
         System.out.println("start : " + start + "; end : " + end);
         //递归
-        if (start > low) quickSort(a, low, start - 1);//左边序列。第一个索引位置到关键值索引-1
-        if (end < high) quickSort(a, end + 1, high);//右边序列。从关键值索引+1到最后一个
+        if (start > low) {
+            System.out.println("左侧");
+            quickSort(a, low, start - 1);//左边序列。第一个索引位置到关键值索引-1
+        }
+        if (end < high) {
+            System.out.println("右侧");
+            quickSort(a, end + 1, high);//右边序列。从关键值索引+1到最后一个
+        }
     }
 
     //冒泡法
