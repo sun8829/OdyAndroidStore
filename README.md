@@ -1,4 +1,5 @@
 # 安卓开发宝典
+## 8、[java设计模式---单例模式(Singleton)](http://www.jianshu.com/p/8ebdbfe1c4bf)
 ## 7、[热修复-HotFix](http://www.jianshu.com/p/4ce6ae88b6b4)
 ## 6、[高仿淘宝搜索结果页]()
 ![](http://bmob-cdn-9267.b0.upaiyun.com/2017/03/15/ee12d5414021046680f60aeef39f2f58.gif)
