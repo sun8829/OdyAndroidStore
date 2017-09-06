@@ -11,7 +11,9 @@ public enum LoggerFactory {
     INSTANCE;
 
     public void info(String format, Object value) {
-        System.out.println(format.substring(0, format.length() - 1) + value + format.substring(format.length() - 1));
+        int start = format.indexOf("{");
+        int end = format.indexOf("}");
+        System.out.println(format.substring(0, start + 1) + value + format.substring(end));
     }
 
     public void info(Object value) {
