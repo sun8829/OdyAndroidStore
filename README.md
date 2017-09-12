@@ -1,4 +1,6 @@
 # 安卓开发宝典
+## 10、[java设计模式---创建者模式（Builder）](http://www.jianshu.com/p/46c753b6e95e)
+## 9、[java设计模式---观察者模式(Observer)](http://www.jianshu.com/p/4b408a1c12d4)
 ## 8、[java设计模式---单例模式(Singleton)](http://www.jianshu.com/p/8ebdbfe1c4bf)
 ## 7、[热修复-HotFix](http://www.jianshu.com/p/4ce6ae88b6b4)
 ## 6、[高仿淘宝搜索结果页]()
