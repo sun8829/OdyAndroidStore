@@ -47,5 +47,4 @@ public class GsonTest {
         public float price;
         public String author;
     }
-
 }

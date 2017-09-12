@@ -90,4 +90,7 @@ dependencies {
     //路由
     compile 'com.alibaba:arouter-api:1.2.1'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.2'
+
+    // LeanCloud 基础包
+    compile('cn.leancloud.android:avoscloud-sdk:v4.4.4')
 }
