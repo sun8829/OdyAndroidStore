@@ -1,4 +1,6 @@
 # 安卓开发宝典
+## 12、[CoordinatorLayout实现酷炫折叠效果](http://www.jianshu.com/p/5decc28f062e)
+## 11、[扩展EditText](http://www.jianshu.com/p/b55d901211c4)
 ## 10、[java设计模式---创建者模式（Builder）](http://www.jianshu.com/p/46c753b6e95e)
 ## 9、[java设计模式---观察者模式(Observer)](http://www.jianshu.com/p/4b408a1c12d4)
 ## 8、[java设计模式---单例模式(Singleton)](http://www.jianshu.com/p/8ebdbfe1c4bf)
