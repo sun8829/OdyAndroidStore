@@ -22,6 +22,11 @@ allprojects {
 
         //HotFix
         maven { url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories" }
+
+        //LeanCloud
+//        maven {
+//            url "http://mvn.leancloud.cn/nexus/content/repositories/public"
+//        }
     }
 }
 

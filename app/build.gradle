@@ -31,7 +31,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.release
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
@@ -63,6 +63,7 @@ dependencies {
 
     compile('com.squareup.retrofit2:retrofit:2.1.0') {
         exclude group: 'com.squareup.okhttp3'
+//        exclude group: 'com.squareup.okio'
     }
     compile('com.squareup.retrofit2:converter-gson:2.1.0') {
         exclude group: 'com.google.code.gson'
@@ -92,5 +93,5 @@ dependencies {
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.2'
 
     // LeanCloud 基础包
-    compile('cn.leancloud.android:avoscloud-sdk:v4.4.4')
+//    compile('cn.leancloud.android:avoscloud-sdk:v4.4.4')
 }

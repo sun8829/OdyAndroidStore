@@ -2,6 +2,7 @@ package com.huaye.odyandroidstore.base;
 
 import android.app.Application;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.huaye.odyandroidstore.BuildConfig;
 import com.huaye.odyandroidstore.utils.Utils;
 import com.taobao.sophix.SophixManager;
@@ -18,7 +19,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         Utils.init(this);
-
+        ARouter.init(this);
         SophixManager.getInstance().setContext(this)
                 .setAppVersion(BuildConfig.VERSION_NAME)
                 .setAesKey(null)

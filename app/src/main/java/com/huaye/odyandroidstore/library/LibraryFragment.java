@@ -2,6 +2,7 @@ package com.huaye.odyandroidstore.library;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,7 +17,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.huaye.odyandroidstore.R;
 import com.huaye.odyandroidstore.base.BaseFragment;
 import com.huaye.odyandroidstore.constraint.ConstraintActivity;
@@ -26,6 +26,7 @@ import com.huaye.odyandroidstore.expandablelist.ExpandableActivity;
 import com.huaye.odyandroidstore.hotfix.HotFixActivity;
 import com.huaye.odyandroidstore.imitate.taobao.TaobaoSearchResultActivity;
 import com.huaye.odyandroidstore.md.CoordinatorActivity;
+import com.huaye.odyandroidstore.md.CoordinatorPuckerActivity;
 import com.huaye.odyandroidstore.md.CoordinatorMobileActivity;
 import com.huaye.odyandroidstore.utils.ConvertUtils;
 import com.huaye.odyandroidstore.utils.ScreenUtils;
@@ -55,8 +56,8 @@ public class LibraryFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        viewPager = (ViewPager) view.findViewById(R.id.viewPager);
-        docImg = (ImageView) view.findViewById(R.id.docImg);
+        viewPager = view.findViewById(R.id.viewPager);
+        docImg = view.findViewById(R.id.docImg);
 
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) viewPager.getLayoutParams();
         layoutParams.width = ScreenUtils.getScreenWidth() - ConvertUtils.dp2px(80);
@@ -68,20 +69,20 @@ public class LibraryFragment extends BaseFragment {
         for (Function function : getData()) {
 
             CardView cv = (CardView) LayoutInflater.from(mContext).inflate(R.layout.item_vp_fun, null);
-//            if (index++ % 2 != 0) {
-//                cv.setCardBackgroundColor(Color.parseColor("#DDDDDD"));
-//            } else {
-//                cv.setCardBackgroundColor(Color.WHITE);
-//            }
-            ImageView img = (ImageView) cv.findViewById(R.id.img);
-            TextView name = (TextView) cv.findViewById(R.id.name);
-            TextView des = (TextView) cv.findViewById(R.id.des);
+            if (index++ % 2 != 0) {
+                cv.setCardBackgroundColor(Color.parseColor("#EEEEEE"));
+            } else {
+                cv.setCardBackgroundColor(Color.WHITE);
+            }
+            ImageView img = cv.findViewById(R.id.img);
+            TextView name = cv.findViewById(R.id.name);
+            TextView des = cv.findViewById(R.id.des);
             name.setText(function.getName());
             des.setText(function.getDes());
             if (function.getImgId() > 0) {
-                Glide.with(mContext).load(function.getImgId()).diskCacheStrategy(DiskCacheStrategy.ALL).into(img);
+                Glide.with(mContext).load(function.getImgId()).into(img);
             } else {
-                Glide.with(mContext).load(function.getImgUrl()).diskCacheStrategy(DiskCacheStrategy.ALL).into(img);
+                Glide.with(mContext).load(function.getImgUrl()).into(img);
             }
 
             cv.setTag(function);
@@ -113,21 +114,6 @@ public class LibraryFragment extends BaseFragment {
     @Override
     protected void initListener() {
         super.initListener();
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
 
         docImg.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -154,9 +140,9 @@ public class LibraryFragment extends BaseFragment {
 
         items.add(new Function()
                 .setDocUrl("http://www.jianshu.com/p/34b35a8c0a1c")
-                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/03/15/ee12d5414021046680f60aeef39f2f58.gif")
-                .setName("来伊份---首页")
-                .setClazz(HotFixActivity.class));
+                .setImgUrl("http://bmob-cdn-9267.b0.upaiyun.com/2017/09/30/0c5b346540060e4e803be4427dd8e5f4.gif")
+                .setName("CoordinatorLayout实现折叠效果")
+                .setClazz(CoordinatorPuckerActivity.class));
 
         items.add(new Function()
                 .setDocUrl("http://www.jianshu.com/p/34b35a8c0a1c")

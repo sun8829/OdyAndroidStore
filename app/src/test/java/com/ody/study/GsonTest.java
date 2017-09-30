@@ -6,8 +6,6 @@ import com.ody.study.util.LoggerFactory;
 
 import org.junit.Test;
 
-import static android.R.attr.data;
-
 /**
  * Created by Samuel on 2017/6/9.
  */
@@ -41,6 +39,11 @@ public class GsonTest {
         String data = "{'price':'16.23630', 'author': '孙华辉'}";
         Bean bean = new Gson().fromJson(data, Bean.class);
         logger.info("price {}", bean.price * 100);
+    }
+
+    @Test
+    public void nullToEmptyString() {
+
     }
 
     public static class Bean {
