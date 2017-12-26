@@ -6,6 +6,9 @@ import com.ody.study.util.LoggerFactory;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Samuel on 2017/6/9.
  */
@@ -43,7 +46,15 @@ public class GsonTest {
 
     @Test
     public void nullToEmptyString() {
+        Gson gson = new Gson();
+        Map<String, Object> params = new HashMap<>();
+        HashMap<String, Object> json = new HashMap<>();
+        json.put("app_channelsid", "ppd");
+        json.put("AppId", "123456878");
+        json.put("app_feature", "ppd" + "_" + "yingyongbao");
+        params.put("ExtroInfo", json);//注册
 
+        System.out.println(gson.toJson(params));
     }
 
     public static class Bean {
